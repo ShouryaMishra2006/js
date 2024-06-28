@@ -30,7 +30,7 @@ tinderuser.id="oyehoye"
 tinderuser.mail="jbdb@google.com"
 tinderuser.age=18
 console.log(tinderuser)
-const name={
+const names={
     username:{
         fullname:{
             first:"shourya",
@@ -46,3 +46,23 @@ const returned=Object.assign({},target,source)//returned==target and this merges
 //Object.keys(tinderuser)--->it returns an array with keys of tinderuser object as elements same for its values
 //Object.entries(tinderuser)-->array with elements as array of key with values its elements
 tinderuser.hasOwnProperty("email")//true
+//object destructure
+const course={
+    name:"shourya",
+    age:18,
+    gender:"female"
+}
+//instead of course.name we can directly access it by
+const {name}=course//now we directly print name ,we can also refer name by another when we add const {name:another}=course
+//backend se jo values aati hai vo pehle xml structure mein aati thi ab aati hai json m api k through
+//when object is not given a variable name then it can be treated as json in which keys should also be written as string
+//function of api is to fetch and provide data in form of objects when a url is called or something from backend 
+{
+    "name";"shourya",
+    "age";18
+}//json format(random me user api)
+//datas in api are fetched in above json format also in below not always in object type format 
+[
+    {},
+    {}
+]
