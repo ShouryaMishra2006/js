@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <div style="background-color: black;color:azure;" class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent=document.querySelector('.parent')
+    console.log(parent)
+    console.log(parent.children)//HTML collection of its children
+    console.log(parent.children[1].innerHTML)
+    //now for loop can be applied here as it is like array
+    for(let i=0;i<parent.children.length;i++){
+        console.log(parent.children[i].innerHTML)
+    }
+    parent.children[1].style.color="orange"
+    //parent.firstElementChild and parent.lastElementChild gives first and last child of the parent
+    const dayone=document.querySelector('.day')
+    console.log(dayone.parentElement)
+    console.log(dayone.nextElementSibling)
+    console.log("NODES ",parent.childNodes)//the space and enter is also considered as a child node(text)
+    //creating an object
+    const div=document.createElement('div')
+    console.log(div)
+    div.className="main"
+    div.id=Math.round(Math.random()*10+1)
+    div.setAttribute("title","created")
+    //div.innerText="shourya",this takes it reference and then add text but setAttribute method directly add attributes to the element
+    const addtext=document.createTextNode("shourya")
+    div.appendChild(addtext)
+    //now the above created div is only in the memory so we have to attach it to the document to display it in the browser
+    document.body.appendChild(div)
+    //now we can apply functions and loop on the parent to change the styling of each of its childnodes
+
+</script>
+</html>
