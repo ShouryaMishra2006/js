@@ -12,6 +12,9 @@
         <div class="day">Wednesday</div>
         <div class="day">Thursday</div>
     </div>
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
 </body>
 <script>
     const parent=document.querySelector('.parent')
@@ -40,6 +43,23 @@
     //now the above created div is only in the memory so we have to attach it to the document to display it in the browser
     document.body.appendChild(div)
     //now we can apply functions and loop on the parent to change the styling of each of its childnodes
-
+    function addlanguage(lang){
+        const li=document.createElement('li')//now it will create a list
+        li.innerHTML=`${lang}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addlanguage("python")
+    addlanguage("django")
+    //now if we have to add many languages through this function then due to innerhtml edit method we have to traverse the whole added elements
+    //optimise approach to edit 
+    //instead of using innerhtml use li.appendChild(document.createtextnode(langname))
+    const second=document.querySelector("li:nth-child(2)")//it does not happens when class name is written in place of li
+    const newsec=document.createElement('li')
+    newsec.textContent="java"
+    second.replaceWith(newsec)
+    const first=document.querySelector("li:first-child")
+    first.outerHTML="<li>Typescript</li>"
+    const last=document.querySelector("li:last-child")
+    last.remove()
 </script>
 </html>
