@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind keyword</title>
+</head>
+<body>
+    <button id="button">Click me</button>
+</body>
+<script>
+    class react{
+        constructor(){
+             this.library="React"
+             this.server="https://localhost:300"
+        
+        //The bind keyword is used to bind the context of this to the class instance within the event listener.
+             document.querySelector('#button').addEventListener('click',this.handleclick.bind(this))//to access all the properties of the class after clicking the button and it also tells the button which hAS CALLED THESE to get executed
+        }
+        handleclick(){
+            console.log("button clicked")
+            console.log(this)
+        }
+        //The handleclick method is bound to the class instance using this.handleclick = this.handleclick.bind(this);. This ensures that this inside handleclick refers to the class instance.
+    }
+    const app=new react()//to create instance of react class to set up event listener
+</script>
+</html>
