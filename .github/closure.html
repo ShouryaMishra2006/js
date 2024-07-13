@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    function outer() {
+        const name = "yes";
+        function display() {
+            console.log(name);
+        }
+        // We are returning the reference of the inner function.
+        // After returning, the scope of the outer function will be vanished,
+        // but due to its presence in memory, the scope of the outer function
+        // goes with the inner function due to lexical (near environment) scoping.
+        // Actually, the lexical scope of the inner function will be returned.
+        return display;
+    }
+    const myfunc = outer();
+    myfunc();
+    function colorchange(color){
+        //document.body.style.backgroundColor=`${color}`
+        function exec(){
+            document.body.style.backgroundColor=`${color}` 
+        }
+        return exec
+    }
+    document.getElementById('orange').onclick=colorchange("orange")
+    document.getElementById('green').onclick=colorchange("green")
+</script>
+</html>
